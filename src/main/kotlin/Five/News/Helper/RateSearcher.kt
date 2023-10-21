@@ -9,13 +9,11 @@ class RateSearcher @Inject constructor(){
     fun searchRateName(rates: Rates, par: String): Rates {
         return Rates(rates.rates.filter { it.name == par }.toMutableList())
     }
-    fun searchRateIndex(rates: Rates, par:List<Int>): Rates?{
+    fun searchRateIndex(rates: Rates, par:Int): Rates?{
         val res:MutableList<Rate> = mutableListOf()
 
             try {
-                for (i in par) {
-                    res.add(rates.rates[i])
-                }
+                    res.add(rates.rates[par])
             }catch (i:IndexOutOfBoundsException){
                 return null
             }

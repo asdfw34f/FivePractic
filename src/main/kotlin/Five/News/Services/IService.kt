@@ -5,8 +5,6 @@ import Five.News.Helper.*
 import Five.News.Types.BroadCast
 import Five.News.Types.TypeEdit
 import Five.News.Types.TypeSearch
-import dagger.Component
-import javax.inject.Inject
 
 interface IService {
     var editor: RateEditor
@@ -32,9 +30,9 @@ interface IService {
     fun search(
         rates: Rates,
         search: TypeSearch,
-        name: String,
-        vararg index: Int,
-        type: BroadCast,
-        access: Boolean
+        name: String= "",
+        index: Int = 1,
+        type: BroadCast=BroadCast.Normal,
+        access: Boolean= false
     ): Rates
 }

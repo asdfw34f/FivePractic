@@ -20,7 +20,7 @@ class ManipulationService @Inject constructor(
     override fun print(rates: Rates) {
         println(printer.printRates(rates))
     }
-    override fun search(rates: Rates, search:TypeSearch, name:String, vararg index: Int, type: BroadCast, access: Boolean): Rates {
+    override fun search(rates: Rates, search:TypeSearch, name:String, index: Int, type: BroadCast, access: Boolean): Rates {
             val res = when(search) {
             TypeSearch.Name -> {
                 if (name.isNotBlank() && name != "")
@@ -38,7 +38,7 @@ class ManipulationService @Inject constructor(
 
             TypeSearch.Index -> {
 
-                searcher.searchRateIndex(rates, index.toList())
+                searcher.searchRateIndex(rates, index)
             }
         }
 
